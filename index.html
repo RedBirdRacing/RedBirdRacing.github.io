@@ -8,6 +8,46 @@
 		<meta name="keywords" content+="Red Bird Racing, UST, EVRT, Formula Student" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="/lib/w3.css">
+
+		<style>
+			.Slides {display:none;}
+			.fade {
+				-webkit-animation-name: fade;
+				-webkit-animation-duration: 2s;
+				animation-name: fade;
+				animation-duration: 2s;
+			}
+
+			@-webkit-keyframes fade {
+				from {opacity: .4} 
+				to {opacity: 1}
+			}
+
+			@keyframes fade {
+				from {opacity: .4} 
+				to {opacity: 1}
+			}
+			.container {
+				position: relative;
+				width: 100%;
+				overflow: hidden;
+				padding-top: 66.66%; /* 3:2 Aspect Ratio */
+			}
+
+			.responsive-iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				width: 100%;
+				height: 100%;
+				border: none;
+				border-radius: 5px;
+			}		
+		</style>
+
 	</head>
 	<body class="is-preload">
 
@@ -32,7 +72,7 @@
 								<li><a href="index.html">Home</a></li>
 								<li><a href="about.html">About Us</a></li>
 								<li><a href="gallery.html">Gallery</a></li>
-								<li><a href="news.html">News</a></li>
+								<li><a href="news_nto.html">News</a></li>
 								<li><a href="partners.html">Partners</a></li>
 							</ul>
 							<a href="#" class="close">Close</a>
@@ -69,12 +109,22 @@
 									<p>What We've Been Up To?</p>
 									<section class="features">
 										<article>
-											<a class="image"><img src="images/test.jpg" alt="" /></a>
+											<a href="https://www.youtube.com/watch?v=jQWMarzjAxI" class="image">
+												<div class="container">
+													<iframe class="responsive-iframe" src="https://www.youtube.com/embed/jQWMarzjAxI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+												</div>
+											</a>
 											<h3 class="major">Gen 3 Road Test</h3>
-											<p>Coming Soon..</p>
+											<p>Gen 3 Official Road Test</p>
+											<a href="https://www.youtube.com/watch?v=jQWMarzjAxI" class="special" target="_blank">Learn more</a>
 										</article>
 										<article>
-											<a href="https://www.imxhk.com/" class="image"><img src="images/IMXHK_Test.jpg" alt="" /></a>
+											<a href="https://www.imxhk.com/" class="image">
+												<img class="Slides fade" src="images/imxhk/IMXHK.jpg">
+												<img class="Slides fade" src="images/imxhk/imxhk_Andy.jpg">
+												<img class="Slides fade" src="images/imxhk/imxhkbg.jpg">
+												<img class="Slides fade" src="images/imxhk/imxhk2.jpg">
+											</a>
 											<h3 class="major">IMXHK 2021</h3>
 											<p>International MotorXpo Hong Kong 2021</p>
 											<a href="https://www.imxhk.com/" class="special" target="_blank">Learn more</a>
@@ -92,7 +142,7 @@
 										</article>
 									</section>
 									<ul class="actions">
-										<li><a href="News.html" class="button">Browse All</a></li>
+										<li><a href="news_nto.html" class="button">Browse All</a></li>
 									</ul>
 								</div>
 							</section>
@@ -136,6 +186,7 @@
 								<li class="icon brands fa-linkedin"><a href="https://hk.linkedin.com/company/hkust-red-bird-racing-evrt" target="_blank">https://hk.linkedin.com/company/hkust-red-bird-racing-evrt</a></li>
 								<li class="icon brands fa-facebook-f"><a href="https://www.facebook.com/HKUST-Red-Bird-Racing-EVRT-102382105550032/" target="_blank">https://www.facebook.com/HKUST-Red-Bird-Racing-EVRT-102382105550032/ </a></li>
 								<li class="icon brands fa-instagram"><a href="https://www.instagram.com/red.bird.racing_hkust/" target="_blank">https://www.instagram.com/red.bird.racing_hkust/</a></li>
+								<li class="icon brands fa-youtube"><a href="https://www.youtube.com/channel/UCkfSiL8lR4T82OY4_Po6ZTA/featured" target="_blank">https://www.youtube.com/channel/UCkfSiL8lR4T82OY4_Po6ZTA/featured</a></li>
 							</ul>
 							<ul class="copyright">
 								<li>&copy; 2022 by HKUST Red Bird Racing (EVRT)</li>
@@ -145,6 +196,7 @@
 
 			</div>
 
+
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -152,6 +204,22 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+			var myIndex = 0;
+			carousel();
+
+			function carousel() {
+				var i;
+				var x = document.getElementsByClassName("Slides");
+				for (i = 0; i < x.length; i++) {
+				   x[i].style.display = "none"; 
+				}
+				myIndex++;
+				if (myIndex > x.length) {myIndex = 1}    
+				x[myIndex-1].style.display = "block";  
+				setTimeout(carousel, 4000); // Change image every 4 seconds
+			}
+			</script>
 
 	</body>
 </html>
